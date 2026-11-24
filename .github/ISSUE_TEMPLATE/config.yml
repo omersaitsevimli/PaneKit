@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/omersaitsevimli/PaneKit/security/advisories/new
+    about: Report security issues privately — do not file a public issue.
+  - name: Documentation / Wiki
+    url: https://github.com/omersaitsevimli/PaneKit/wiki
+    about: Installation, shortcuts, Layouts, troubleshooting

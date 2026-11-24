@@ -1,0 +1,28 @@
+name: Feature request
+description: Suggest an enhancement
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / motivation
+      description: What are you trying to do that PaneKit does not support well today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: How should it work? Shortcuts, UI, edge cases?
+    validations:
+      required: true
+  - type: textarea
+    id: alts
+    attributes:
+      label: Alternatives considered
+      description: Other apps or workarounds you already use
+  - type: markdown
+    attributes:
+      value: |
+        Related docs: [Wiki](https://github.com/omersaitsevimli/PaneKit/wiki) · [Shortcuts](https://github.com/omersaitsevimli/PaneKit/wiki/Shortcuts)

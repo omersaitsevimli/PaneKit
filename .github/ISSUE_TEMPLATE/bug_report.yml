@@ -1,0 +1,52 @@
+name: Bug report
+description: Something does not work as expected
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. For **security** issues use [Security advisories / private reporting](https://github.com/omersaitsevimli/PaneKit/security) — not a public issue.
+  - type: input
+    id: version
+    attributes:
+      label: PaneKit version
+      description: Release tag or approximate build date (e.g. 2.0.0)
+      placeholder: "2.0.0"
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: "15.1 / Sequoia"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: Expected vs actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. …
+        2. …
+    validations:
+      required: true
+  - type: checkboxes
+    id: ax
+    attributes:
+      label: Accessibility
+      options:
+        - label: Menu shows Accessibility OK (trusted)
+        - label: Only ~/Applications/PaneKit.app is enabled in System Settings
+  - type: textarea
+    id: extra
+    attributes:
+      label: Extra context
+      description: Screenshots, shortcuts used, multi-monitor, Stage Manager, etc.
