@@ -47,6 +47,17 @@ Also: Stage Manager inset, window gaps, Launch at Login, remappable shortcuts, i
 
 ## Install
 
+### Download (Apple Silicon)
+
+1. Grab **[PaneKit-2.0.0-macos-arm64.zip](https://github.com/omersaitsevimli/PaneKit/releases/latest)** from [Releases](https://github.com/omersaitsevimli/PaneKit/releases)
+2. Unzip → move `PaneKit.app` to `~/Applications/`
+3. First launch: right-click → **Open** (local signing; Gatekeeper may warn once)
+4. Grant **Accessibility** to that copy only
+
+Intel Mac? Build from source below (current binary is **arm64**).
+
+### Build from source
+
 **Recommended** (stable path for Accessibility / TCC):
 
 ```bash
@@ -195,6 +206,17 @@ Ayrıca: Stage Manager boşluğu, pencere gap’i, açılışta başlat, özelle
 - Kaynak derlemek için [Xcode](https://developer.apple.com/xcode/) 15+  
 
 ## Kurulum
+
+### İndir (Apple Silicon)
+
+1. [Releases](https://github.com/omersaitsevimli/PaneKit/releases) sayfasından **[PaneKit-2.0.0-macos-arm64.zip](https://github.com/omersaitsevimli/PaneKit/releases/latest)** indir
+2. Zip’i aç → `PaneKit.app` dosyasını `~/Applications/` altına taşı
+3. İlk açılış: sağ tık → **Aç** (yerel imza; Gatekeeper bir kez uyarabilir)
+4. Erişilebilirlik iznini **yalnızca bu kopyaya** ver
+
+Intel Mac? Aşağıdan kaynak derle (şu anki binary **arm64**).
+
+### Kaynaktan derle
 
 **Önerilen** (Accessibility / TCC için sabit yol):
 
