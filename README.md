@@ -84,7 +84,23 @@ Use the menu item **Open Accessibility Settings** if you are unsure which pane t
 | `⌃⌥L` | |
 | Option (⌥) while over the green zoom button | |
 
-Pick a template → fill zones (drag from the candidate list or click) → optional **− / +** to scale inside a zone. When two windows share an edge, drag the seam to resize both.
+**1. Choose a template**
+
+<p align="center">
+  <img src="docs/screenshots/layouts-01-picker.png" alt="Layouts template picker" width="720" />
+</p>
+
+**2. Fill zones** — click an empty zone or drag a window from the list. Use **− / +** to scale inside a filled zone.
+
+<p align="center">
+  <img src="docs/screenshots/layouts-02-fill.png" alt="Layouts zone fill session" width="720" />
+</p>
+
+**3. Done** — windows tile to the template. When two windows share an edge, drag the seam to resize both.
+
+<p align="center">
+  <img src="docs/screenshots/layouts-03-result.png" alt="Layouts result with shared-edge resize" width="720" />
+</p>
 
 ## Workspaces & Stash
 
@@ -218,7 +234,23 @@ Menüdeki **Erişilebilirlik Ayarlarını Aç** doğru panoyu açar.
 | `⌃⌥L` | |
 | Yeşil zoom düğmesinin üzerinde ⌥ | |
 
-Şablon seç → bölgeleri doldur (listeden sürükle veya tıkla) → isteğe bağlı **− / +** ile zone içinde ölçekle. İki pencere kenar paylaşınca ortak çizgiyi sürükleyerek ikisini birden boyutlandırabilirsiniz.
+**1. Şablon seç**
+
+<p align="center">
+  <img src="docs/screenshots/layouts-01-picker.png" alt="Layouts şablon seçici" width="720" />
+</p>
+
+**2. Bölgeleri doldur** — boş bölgeye tıkla veya listeden sürükle. Dolu bölgede **− / +** ile ölçekle.
+
+<p align="center">
+  <img src="docs/screenshots/layouts-02-fill.png" alt="Layouts bölge doldurma" width="720" />
+</p>
+
+**3. Sonuç** — pencereler şablona yerleşir. Ortak kenarı sürükleyerek iki pencereyi birden boyutlandırabilirsin.
+
+<p align="center">
+  <img src="docs/screenshots/layouts-03-result.png" alt="Layouts sonucu ve ortak kenar" width="720" />
+</p>
 
 ## Workspaces ve Stash
 
