@@ -382,16 +382,16 @@ final class LayoutController: NSObject {
         reapplyAllAssignments(session, bringToFront: window)
 
         if session.isComplete && filledEmptyZone {
-            // Final pass after a short delay (fullscreen exit / AX settle).
+            // One quiet settle pass (avoid stacked re-applies that flicker gaps between tiles).
             // Prefer the first zone (usually left) so the primary app isn’t buried under Brave.
             let primary = primaryWindow(in: session) ?? window
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) { [weak self] in
                 self?.reapplyAllAssignments(session, bringToFront: primary)
                 self?.refreshSessionUI()
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) { [weak self] in
-                self?.windowManager.bringToFront(primary)
-                self?.dismissAll()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+                    self?.windowManager.bringToFront(primary)
+                    self?.dismissAll()
+                }
             }
         } else if session.isComplete {
             refreshSessionUI()

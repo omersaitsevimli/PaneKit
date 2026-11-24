@@ -955,15 +955,27 @@ final class WindowManager {
 
         // Stubborn apps (App Store, browsers, Xcode) often ignore the first pass
         // when previously fullscreen / zoomed / Stage-Manager tiled.
-        if let expected, !frameApproximately(window, matches: expected) {
-            applyAXFrame(window, frame: expected)
-            if !frameApproximately(window, matches: expected) {
-                // Shrink slightly then expand to target (breaks “sticky” zoom).
-                var nudged = expected
-                nudged.size.width = max(200, expected.width - 40)
-                nudged.size.height = max(160, expected.height - 40)
-                applyAXFrame(window, frame: nudged)
-                applyAXFrame(window, frame: expected)
+        guard let expected, !frameApproximately(window, matches: expected) else { return }
+
+        applyAXFrame(window, frame: expected)
+        guard !frameApproximately(window, matches: expected) else { return }
+
+        // Break sticky zoom with a 1px nudge — NOT a large shrink.
+        // A −40px intermediate size opened a visible gap next to neighbors
+        // (“aralık açılıp kapanıyor”) before the final expand.
+        var nudged = expected
+        nudged.size.width = max(200, expected.width - 1)
+        nudged.size.height = max(160, expected.height - 1)
+        applyAXFrame(window, frame: nudged)
+        applyAXFrame(window, frame: expected)
+
+        // One deferred retry after WindowServer settles (fullscreen exit, Electron).
+        // Keep the final size only — no second visible shrink.
+        let target = expected
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.12) { [weak self] in
+            guard let self else { return }
+            if !self.frameApproximately(window, matches: target) {
+                self.applyAXFrame(window, frame: target)
             }
         }
     }

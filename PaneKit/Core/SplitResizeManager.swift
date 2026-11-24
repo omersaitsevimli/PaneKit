@@ -38,11 +38,15 @@ final class SplitResizeManager {
     private var session: Session?
     private var chromeDisabledPIDs: Set<pid_t> = []
 
-    /// Gap between windows still treated as “touching”.
-    private let maxGap: CGFloat = 4
     /// Half-width of the grab strip around the seam.
     private let hitThickness: CGFloat = 5
     private let minSpan: CGFloat = 180
+
+    /// Windows count as touching when their edges are within this distance.
+    /// Must cover the configured window gap (neighbors sit `gap` apart after inset).
+    private var maxGap: CGFloat {
+        max(4, UserPreferences.shared.windowGap + 2)
+    }
 
     init(windowManager: WindowManager) {
         self.windowManager = windowManager

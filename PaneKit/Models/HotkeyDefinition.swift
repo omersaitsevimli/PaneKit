@@ -13,8 +13,9 @@ struct HotkeyDefinition: Identifiable {
         ShortcutFormatter.displayString(modifiers: carbonModifiers, keyCode: keyCode)
     }
 
+    /// Unbound shortcuts use `modifiers == 0`. Key code `0` is valid — it is `kVK_ANSI_A`.
     var isEnabled: Bool {
-        carbonModifiers != 0 && keyCode != 0
+        carbonModifiers != 0
     }
 
     /// Resolved bindings (custom overrides applied) for registration / menus.
@@ -98,7 +99,8 @@ extension SnapAction {
 
 enum ShortcutFormatter {
     static func displayString(modifiers: UInt32, keyCode: UInt32) -> String {
-        guard modifiers != 0, keyCode != 0 else { return "—" }
+        // modifiers == 0 means unbound. keyCode 0 is kVK_ANSI_A (a real key).
+        guard modifiers != 0 else { return "—" }
         var parts: [String] = []
         if modifiers & UInt32(controlKey) != 0 { parts.append("⌃") }
         if modifiers & UInt32(optionKey) != 0 { parts.append("⌥") }

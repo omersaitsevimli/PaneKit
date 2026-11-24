@@ -57,7 +57,8 @@ final class KeyRecorderView: NSView {
     func setShortcut(modifiers: UInt32, keyCode: UInt32) {
         currentModifiers = modifiers
         currentKeyCode = keyCode
-        let isDisabled = modifiers == 0 || keyCode == 0
+        // keyCode 0 is kVK_ANSI_A — only modifiers==0 means unbound.
+        let isDisabled = modifiers == 0
         displayLabel.stringValue = isDisabled
             ? ""
             : ShortcutFormatter.displayString(modifiers: modifiers, keyCode: keyCode)
@@ -89,7 +90,7 @@ final class KeyRecorderView: NSView {
 
         for action in SnapAction.allCases where action != editingAction {
             let existing = UserPreferences.shared.hotkey(for: action)
-            guard existing.modifiers != 0, existing.keyCode != 0 else { continue }
+            guard existing.modifiers != 0 else { continue }
             if existing.modifiers == modifiers && existing.keyCode == keyCode {
                 onConflict?(action)
                 stopRecording()
@@ -122,7 +123,7 @@ final class KeyRecorderView: NSView {
         displayLabel.font = .monospacedSystemFont(ofSize: 13, weight: .medium)
         layer?.borderColor = NSColor.separatorColor.cgColor
         layer?.borderWidth = 1
-        if currentModifiers == 0 || currentKeyCode == 0 {
+        if currentModifiers == 0 {
             displayLabel.stringValue = ""
         } else {
             displayLabel.stringValue = ShortcutFormatter.displayString(

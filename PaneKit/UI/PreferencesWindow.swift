@@ -328,7 +328,8 @@ final class PreferencesWindowController: NSWindowController {
                 alert.runModal()
             }
             recorder.onRecorded = { [weak self] modifiers, keyCode in
-                if modifiers == 0 || keyCode == 0 {
+                // modifiers==0 clears the binding. keyCode 0 is valid (kVK_ANSI_A).
+                if modifiers == 0 {
                     UserPreferences.shared.disableHotkey(for: action)
                 } else {
                     UserPreferences.shared.setCustomHotkey(for: action, modifiers: modifiers, keyCode: keyCode)
