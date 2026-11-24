@@ -40,6 +40,10 @@ Built with native **Swift + AppKit**. No Electron. No sandbox tax: full Accessib
 
 Also: Stage Manager inset, window gaps, Launch at Login, remappable shortcuts, ignore-app list.
 
+## Documentation
+
+Full guides (TR + EN): **[docs/wiki](docs/wiki/Home.md)** · [GitHub Wiki](https://github.com/omersaitsevimli/PaneKit/wiki)
+
 ## Requirements
 
 - macOS 13 or later  
@@ -199,6 +203,10 @@ Yerel **Swift + AppKit**. Electron yok. Accessibility ile tam pencere kontrolü 
 | **Stash** | Pencereyi kenara gizle; şeride imleç getirince geri aç |
 
 Ayrıca: Stage Manager boşluğu, pencere gap’i, açılışta başlat, özelleştirilebilir kısayollar, yok sayılan uygulamalar.
+
+## Dokümantasyon
+
+Ayrıntılı rehberler (TR + EN): **[docs/wiki](docs/wiki/Home.md)** · [GitHub Wiki](https://github.com/omersaitsevimli/PaneKit/wiki)
 
 ## Gereksinimler
 
